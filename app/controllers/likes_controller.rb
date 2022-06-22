@@ -5,7 +5,6 @@ class LikesController < ApplicationController
     @post.like!(current_user)
     @post.reload
     @user = current_user
-    @post.broadcast_update_to "posts_list", target: "likes-post-#{@post.id}", partial: "likes/like", locals: { post: @post, user: @user}
 
     respond_to do |format|
       format.turbo_stream

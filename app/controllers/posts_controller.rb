@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     current_user.posts << @post
-    @user = current_user
 
     respond_to do |format|
       format.turbo_stream

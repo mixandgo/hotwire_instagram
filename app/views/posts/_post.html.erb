@@ -13,7 +13,7 @@
     <div class="col-span-9 justify-self-end"><%= image_tag "save.png", class: "instacard-save-icon" %></div>
   </div>
   <div class="instacard-likes" id="likes-post-count-<%= post.id %>">
-    <%= pluralize post.likes.count, "like" %>
+    <%= render partial: "posts/likes_count", locals: { count: post.likes.count } %>
   </div>
   <div class="instacard-comments" id="post-comments-<%= post.id %>">
     <% post.comments.order(created_at: :desc).each do |comment| %>

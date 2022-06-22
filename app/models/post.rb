@@ -7,8 +7,11 @@ class Post < ApplicationRecord
   validates :body, presence: true
   validates :file, presence: true
 
-  after_create_commit do 
-    broadcast_prepend_to "posts_list", target: "posts", partial: "posts/post", locals: { post: self, user: self.user }
+  after_create_commit do
+    broadcast_prepend_to "posts_list",
+      target: "posts",
+      partial: "posts/post",
+      locals: { post: self, user: nil }
   end
 
   def like!(user)
@@ -16,7 +19,7 @@ class Post < ApplicationRecord
   end
 
   def unlike!(user)
-    likes.where(user_id: user.id).delete_all
+    likes.find_by(user_id: user.id).destroy
   end
 
   def liked?(user)
