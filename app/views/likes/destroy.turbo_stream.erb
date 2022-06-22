@@ -2,5 +2,5 @@
   <%= render partial: "likes/like", locals: { post: @post, user: current_user } %>
 <% end %>
 <%= turbo_stream.update "likes-post-count-#{@post.id}" do %>
-  <%= pluralize(@post.likes.count, "like") %>
+  <%= render partial: "posts/likes_count", locals: { count: @post.likes.count } %>
 <% end %>

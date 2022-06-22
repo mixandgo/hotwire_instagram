@@ -1,7 +1,4 @@
 <% if @comment.persisted? %>
-  <%= turbo_stream.prepend "post-comments-#{@post.id}" do %>
-    <%= render @comment %>
-  <% end %>
   <%= turbo_stream.update "post-comment-form-#{@post.id}" do %>
     <%= render partial: "comments/new", locals: { post: @post, comment: Comment.new } %>
   <% end %>
