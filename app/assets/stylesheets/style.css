@@ -101,11 +101,11 @@ body {
 }
 
 .instacard-comment-form .instacard-comment-form-input {
-  border: none;
+  border: 1px solid white;
   font-size: 0.9rem;
   color: #262626;
   padding: 1rem;
-  width: 90%;
+  width: 100%;
 }
 
 ::placeholder,
@@ -120,7 +120,18 @@ input:focus {
 .instacard-comment-form .instacard-comment-form-submit {
   color: #0095f6;
   font-weight: 400;
-  float: right;
-  margin-right: 1rem;
-  margin-top: 1rem;
+}
+
+.target-highlight {
+  -webkit-animation: target-fade 2s 1;
+  -moz-animation: target-fade 2s 1;
+}
+
+@-webkit-keyframes target-fade {
+  0% { background-color: rgba(255,255,153,.8); }
+  100% { background-color: rgba(255,255,153,0); }
+}
+@-moz-keyframes target-fade {
+  0% { background-color: rgba(255,255,153,.8); }
+  100% { background-color: rgba(255,255,153,0); }
 }
