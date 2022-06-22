@@ -1,0 +1,9 @@
+<% if user && post.liked?(user) %>
+  <%= button_to likes_post_path(post), method: :delete, class: "instacard-like-icon post-unlike" do %>
+    <%= image_tag "liked.png" %>
+  <% end %>
+<% else %>
+  <%= button_to likes_post_path(post), class: "instacard-like-icon post-like" do %>
+    <%= image_tag "like.png" %>
+  <% end %>
+<% end %>

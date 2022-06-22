@@ -1,0 +1,6 @@
+<%= form_for comment, url: comments_path(post) do |f| %>
+  <div class="grid grid-cols-12 gap-0 content-center">
+    <%= f.text_field :body, placeholder: "Your comment...", class: "instacard-comment-form-input col-span-10" %>
+    <%= f.submit "Post", class: "instacard-comment-form-submit col-span-2" %>
+  </div>
+<% end %>
