@@ -62,9 +62,11 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "letter_opener"
+  gem "pry-rails", "~> 0.3.9"
 end
-
 
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "devise", "~> 4.8"
+gem "nokogiri"

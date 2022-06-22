@@ -33,5 +33,25 @@ module HotwireInstagram
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+      form_fields = [
+        'textarea',
+        'input',
+        'select'
+      ]
+
+      elements = Nokogiri::HTML::DocumentFragment.parse(html_tag).css "label, " + form_fields.join(', ')
+
+      html = ""
+      elements.each do |e|
+        if e.node_name.eql? 'label'
+          html += e
+        elsif form_fields.include? e.node_name
+          e.append_class("border border-red-500")
+          html += raw e
+        end
+      end
+      html.html_safe
+    end
   end
 end

@@ -7,6 +7,7 @@ module.exports = {
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}'
   ],
+  important: true,
   theme: {
     extend: {
       fontFamily: {
