@@ -1,0 +1,18 @@
+<section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+  <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Sign in</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="my-5">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex justify-end mt-6">
+      <%= f.submit "Sign in", class: "button"  %>
+    </div>
+  <% end %>
+</section>
