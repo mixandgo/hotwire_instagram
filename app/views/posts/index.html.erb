@@ -1,0 +1,16 @@
+
+<% if user_signed_in? %>
+  <%= turbo_stream_from "posts_list" %>
+
+  <div class="mb-12 text-center">
+    <%= link_to "+", new_post_path, class: "button px-6 py-4 text-4xl hover:bg-gray-300 bg-white hover:text-white text-gray-600 border-2", data: { turbo_frame: "modal" } %>
+  </div>
+
+  <div id="posts">
+    <% @posts.each do |post| %>
+      <%= render partial: "posts/post", locals: { post: post, user: current_user } %>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-center">Please sign in <%= link_to "here", new_user_session_path %>.</p>
+<% end %>

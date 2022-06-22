@@ -1,0 +1,5 @@
+<%= turbo_stream.prepend "posts" do %>
+  <%= render @post %>
+<% end %>
+
+<%= turbo_stream.update "modal", "" %>
