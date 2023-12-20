@@ -13,7 +13,7 @@ default: &default
 
 development:
   <<: *default
-  database: hotwire_instagram_test
+  database: hotwire_instagram_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
